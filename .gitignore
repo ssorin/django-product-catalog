@@ -1,0 +1,18 @@
+# use glob syntax.
+syntax: glob
+
+*.log
+*.swp
+*.swo
+*.pyc
+secret_key
+public/
+ignore/
+old/
+old-*
+.sass-cache/
+.idea/
+db.sqlite3
+
+
+
