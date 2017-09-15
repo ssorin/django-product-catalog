@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """ Category model for Product Catalog """
 
 from django.db import models
