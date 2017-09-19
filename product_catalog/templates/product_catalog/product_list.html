@@ -1,0 +1,10 @@
+<h1>Products</h1>
+<ul>
+{% for product in product_list %}
+    <li><a href='{{ product.get_absolute_url }}'>{{ product.title }}</a></li>
+{% empty %}
+    <li>No categories yet.</li>
+{% endfor %}
+</ul>
+
+{% include "product_catalog/_paginator.html" %}

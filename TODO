@@ -1,0 +1,11 @@
+- html
+- admin
+- test
+- readme
+- pip
+- abstrat model: filer(?), cms(?)
+
+-----
+fait
+-----
+abstrat model: slug, title, publication, categories, content, extrait, image

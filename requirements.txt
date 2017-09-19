@@ -1,0 +1,2 @@
+django-mptt==0.8.7
+Pillow==4.2.1
