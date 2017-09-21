@@ -8,13 +8,17 @@
     {% for product in product_list %}
         <li>
             <a href='{{ product.get_absolute_url }}'>{{ product }}</a>
-            <br />
-            {{ product.excerpt }}
-            <br />
-            {%  trans "Categories" %}:
-            {% for category in product.categories.all %}
-                <a href="{{ category.get_absolute_url }}">{{ category.title }}</a>{% if not forloop.last %}, {% endif %}
-            {% endfor %}
+            {% if product.excerpt %}
+                <br />{{ product.excerpt }}
+            {% endif %}
+
+            {% if product.categories.all %}
+                <br />
+                {%  trans "Categories" %}:
+                {% for category in product.categories.all %}
+                    <a href="{{ category.get_absolute_url }}">{{ category.title }}</a>{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            {% endif %}
         </li>
     {% empty %}
         <li>{%  trans "No products yet." %}</li>

@@ -4,7 +4,9 @@
 {% block catalog_content %}
     <h2>{%  trans "Product" %}: {{ product.title }}</h2>
 
+    {% if product.image %}
     <p><img src="{{ product.image.url }}" alt="{{ product.image_caption }}" /></p>
+    {% endif %}
     <p>{{ product.content }}</p>
 
     {%  trans "Categories" %}:
