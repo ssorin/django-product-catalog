@@ -1,27 +1,23 @@
-<h1>Categories</h1>
-<ul>
-{% for category in category_list %}
-    <li><a href='{{ category.get_absolute_url }}'>{{ category.title }}</a></li>
-{% empty %}
-    <li>No categories yet.</li>
-{% endfor %}
-</ul>
+{% extends "product_catalog/base.html" %}
+{% load i18n mptt_tags %}
 
+{% block catalog_content %}
+    <h2>{% trans "Category List" %}</h2>
 
-{% if page_obj.paginator.num_pages > 1 %}
-<div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-        {% endif %}
+    <ul class="root">
+        <li><a href="{% url "product_catalog:category_list" %}">{% trans "All categories" %}</a></li>
+        {% recursetree category_list %}
+        <li>
+            <a href='{{ node.get_absolute_url }}'>{{ node }}</a>
+            ({{ node.product_published.count }})
+            {% if not node.is_leaf_node %}
+                <ul class="children">
+                    {{ children }}
+                </ul>
+            {% endif %}
+        </li>
+        {% endrecursetree %}
+    </ul>
 
-        <span class="current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next</a>
-        {% endif %}
-    </span>
-</div>
-{% endif %}
+    {% include "product_catalog/_paginator.html" %}
+{% endblock %}

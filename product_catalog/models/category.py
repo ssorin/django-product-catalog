@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 """ Category model for Product Catalog """
 
 from django.db import models
@@ -10,7 +9,8 @@ from mptt.managers import TreeManager
 from mptt.models import MPTTModel
 from mptt.models import TreeForeignKey
 
-
+from product_catalog.managers import ProductsRelatedPublishedManager
+from product_catalog.managers import product_published
 
 
 @python_2_unicode_compatible
@@ -37,6 +37,7 @@ class Category(MPTTModel):
         verbose_name=_('parent category'))
 
     objects = TreeManager()
+    published = ProductsRelatedPublishedManager()
 
     @models.permalink
     def get_absolute_url(self):
@@ -48,6 +49,13 @@ class Category(MPTTModel):
 
     def __str__(self):
         return self.title
+
+    def product_published(self):
+        """
+        Returns category's published entries.
+        """
+        return product_published(self.products)
+
 
     class Meta:
         """

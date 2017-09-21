@@ -7,7 +7,7 @@ DRAFT = 0
 HIDDEN = 1
 PUBLISHED = 2
 
-def entries_published(queryset):
+def product_published(queryset):
     """
     Return only the entries published.
     """
@@ -20,7 +20,7 @@ def entries_published(queryset):
         status=PUBLISHED)
 
 
-class EntryPublishedManager(models.Manager):
+class ProductPublishedManager(models.Manager):
     """
     Manager to retrieve published entries.
     """
@@ -29,5 +29,24 @@ class EntryPublishedManager(models.Manager):
         """
         Return published entries.
         """
-        return entries_published(
-            super(EntryPublishedManager, self).get_queryset())
+        return product_published(
+            super(ProductPublishedManager, self).get_queryset())
+
+class ProductsRelatedPublishedManager(models.Manager):
+    """
+    Manager to retrieve objects associated with published entries.
+    """
+
+    def get_queryset(self):
+        """
+        Return a queryset containing published entries.
+        """
+        now = timezone.now()
+        return super(
+            ProductsRelatedPublishedManager, self).get_queryset().filter(
+            models.Q(products__start_publication__lte=now) |
+            models.Q(products__start_publication=None),
+            models.Q(products__end_publication__gt=now) |
+            models.Q(products__end_publication=None),
+            products__status=PUBLISHED
+            ).distinct()

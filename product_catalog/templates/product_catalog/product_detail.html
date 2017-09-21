@@ -1,2 +1,16 @@
-<h1>{{ product.title }}</h1>
+{% extends "product_catalog/base.html" %}
+{% load i18n %}
+
+{% block catalog_content %}
+    <h2>{%  trans "Product" %}: {{ product.title }}</h2>
+
+    <p><img src="{{ product.image.url }}" alt="{{ product.image_caption }}" /></p>
+    <p>{{ product.content }}</p>
+
+    {%  trans "Categories" %}:
+    {% for category in product.categories.all %}
+        <a href="{{ category.get_absolute_url }}">{{ category.title }}</a>{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+
+{% endblock %}
 

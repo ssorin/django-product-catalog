@@ -1,10 +1,25 @@
-<h1>Products</h1>
-<ul>
-{% for product in product_list %}
-    <li><a href='{{ product.get_absolute_url }}'>{{ product.title }}</a></li>
-{% empty %}
-    <li>No categories yet.</li>
-{% endfor %}
-</ul>
+{% extends "product_catalog/base.html" %}
+{% load i18n %}
 
-{% include "product_catalog/_paginator.html" %}
+{% block catalog_content %}
+    <h2>{%  trans "Product List" %}</h2>
+
+    <ul>
+    {% for product in product_list %}
+        <li>
+            <a href='{{ product.get_absolute_url }}'>{{ product }}</a>
+            <br />
+            {{ product.excerpt }}
+            <br />
+            {%  trans "Categories" %}:
+            {% for category in product.categories.all %}
+                <a href="{{ category.get_absolute_url }}">{{ category.title }}</a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </li>
+    {% empty %}
+        <li>{%  trans "No products yet." %}</li>
+    {% endfor %}
+    </ul>
+
+    {% include "product_catalog/_paginator.html" %}
+{% endblock %}

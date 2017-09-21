@@ -9,19 +9,16 @@ from product_catalog.settings import PAGINATION
 
 class ProductListView(ListView):
     """ """
-    model = Product
     context_object_name = "product_list"
     paginate_by = PAGINATION
 
-    def get_context_data(self, **kwargs):
-        context = super(ProductListView, self).get_context_data(**kwargs)
-        return context
+    def get_queryset(self, **kwargs):
+        return Product.published.all()
+
 
 class ProductDetailView(DetailView):
     """ """
-    model = Product
     context_object_name = "product"
 
-    def get_context_data(self, **kwargs):
-        context = super(ProductDetailView, self).get_context_data(**kwargs)
-        return context
+    def get_queryset(self, **kwargs):
+        return Product.published.all()

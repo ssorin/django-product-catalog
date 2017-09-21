@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """ Product Catalog: Product model """
 
 from product_catalog.models import load_model_class

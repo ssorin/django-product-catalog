@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """ Product Catalog: Product models"""
 
 from django.db import models
@@ -7,7 +8,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from product_catalog.settings import UPLOAD_TO
 from product_catalog.managers import DRAFT, HIDDEN, PUBLISHED
-from product_catalog.managers import EntryPublishedManager
+from product_catalog.managers import ProductPublishedManager
 
 
 @python_2_unicode_compatible
@@ -60,7 +61,7 @@ class PublicationProduct(models.Model):
     end_publication = models.DateTimeField(_('end publication'), db_index=True, blank=True, null=True,
                                            help_text=_('End date of publication.'))
 
-    published = EntryPublishedManager()
+    published = ProductPublishedManager()
 
     @property
     def is_actual(self):
@@ -110,7 +111,7 @@ class CategoriesProduct(models.Model):
     categories = models.ManyToManyField(
         'product_catalog.Category',
         blank=True,
-        related_name='entries',
+        related_name='products',
         verbose_name=_('categories'))
 
     class Meta:
@@ -146,4 +147,3 @@ class AbstractProduct(
 
     class Meta(CoreProduct.Meta):
         abstract = True
-

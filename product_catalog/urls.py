@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """ Product Catalog: Defaults urls """
 
-from django.conf.urls import include
 from django.conf.urls import url
+from django.views.generic import TemplateView
 
 from product_catalog.views.category import CategoryListView, CategoryDetailView
 from product_catalog.views.product import ProductListView, ProductDetailView
@@ -24,5 +24,5 @@ urlpatterns = [
     url(r'^products/(?P<slug>[-\w]+)/$', ProductDetailView.as_view(), name='product_detail'),
 
     # Home
-    url(r'^$', ProductListView.as_view(), name='product_home'),
+    url(r'^$', TemplateView.as_view(template_name='product_catalog/home.html'), name='product_home'),
 ]
