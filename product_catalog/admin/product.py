@@ -14,10 +14,10 @@ class ProductAdmin(admin.ModelAdmin):
     Admin for Entry model.
     """
     form = CategoryAdminForm
-    prepopulated_fields = {'slug': ('title', )}
+
     fieldsets = (
         (_('Content'), {
-            'fields': (('title', 'status'), 'slug', 'excerpt', 'content', 'categories')}),
+            'fields': (('title', 'status'), 'excerpt', 'content', 'categories')}),
         (_('Illustration'), {
             'fields': ('image', 'image_caption'),
             'classes': ('collapse', 'collapse-closed')}),

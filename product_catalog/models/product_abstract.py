@@ -10,6 +10,7 @@ from product_catalog.settings import UPLOAD_TO
 from product_catalog.managers import DRAFT, HIDDEN, PUBLISHED
 from product_catalog.managers import ProductPublishedManager
 
+from django_extensions.db.fields import AutoSlugField
 
 @python_2_unicode_compatible
 class CoreProduct(models.Model):
@@ -17,7 +18,7 @@ class CoreProduct(models.Model):
     Abstract core product model class providing the base fields and methods
     """
     title = models.CharField(_('title'), max_length=255)
-    slug = models.SlugField(_('slug'), max_length=255)
+    slug = AutoSlugField(_('slug'), max_length=255, populate_from=['title', 'id'], unique=True)
     creation_date = models.DateTimeField(_('creation date'), default=timezone.now)
     last_update = models.DateTimeField(_('last update'), auto_now=True)
 
