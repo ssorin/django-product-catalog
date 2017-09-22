@@ -5,6 +5,7 @@ syntax: glob
 *.swp
 *.swo
 *.pyc
+dist
 secret_key
 public/
 ignore/
