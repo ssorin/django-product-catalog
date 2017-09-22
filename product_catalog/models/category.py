@@ -16,14 +16,14 @@ from product_catalog.managers import product_published
 @python_2_unicode_compatible
 class Category(MPTTModel):
     """
-    Simple model for categorizing entries.
+    Simple model for categorizing products.
     """
 
     title = models.CharField(
         _('title'), max_length=255)
 
     slug = models.SlugField(
-        _('slug'), unique=True, max_length=255,
+        _('slug'), unique=True, max_length=255, db_index=True,
         help_text=_("Used to build the category's URL."))
 
     description = models.TextField(
@@ -52,7 +52,7 @@ class Category(MPTTModel):
 
     def product_published(self):
         """
-        Returns category's published entries.
+        Returns category's published products.
         """
         return product_published(self.products)
 

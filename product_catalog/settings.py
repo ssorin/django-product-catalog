@@ -1,4 +1,6 @@
+# -*- coding: utf-8 -*-
 """ Product Catalog: Settings """
+
 from django.conf import settings
 
 

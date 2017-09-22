@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Admin of Product Catalog"""
+""" Product Catalog: Admin """
 
 from django.contrib import admin
 

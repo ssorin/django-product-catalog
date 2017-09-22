@@ -1,4 +1,5 @@
-"""Managers of Zinnia"""
+# -*- coding: utf-8 -*-
+""" Product Catalog: Managers """
 
 from django.db import models
 from django.utils import timezone
@@ -9,7 +10,7 @@ PUBLISHED = 2
 
 def product_published(queryset):
     """
-    Return only the entries published.
+    Return only the products published.
     """
     now = timezone.now()
     return queryset.filter(
@@ -22,24 +23,24 @@ def product_published(queryset):
 
 class ProductPublishedManager(models.Manager):
     """
-    Manager to retrieve published entries.
+    Manager to retrieve published products.
     """
 
     def get_queryset(self):
         """
-        Return published entries.
+        Return published products.
         """
         return product_published(
             super(ProductPublishedManager, self).get_queryset())
 
 class ProductsRelatedPublishedManager(models.Manager):
     """
-    Manager to retrieve objects associated with published entries.
+    Manager to retrieve objects associated with published products.
     """
 
     def get_queryset(self):
         """
-        Return a queryset containing published entries.
+        Return a queryset containing published products.
         """
         now = timezone.now()
         return super(

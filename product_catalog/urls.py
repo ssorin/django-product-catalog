@@ -12,11 +12,10 @@ app_name = 'product_catalog'
 urlpatterns = [
     # Category
     url(r'^categories/$', CategoryListView.as_view(), name='category_list'),
-    url(
-        r'^categories/(?P<slug>[-\w]+)/page/(?P<page>\d+)/$',
-        CategoryDetailView.as_view(),
-        name='category_detail_paginated'
-        ),
+    # url(r'^categories/(?P<slug>[-\w]+)/page/(?P<page>\d+)/$',
+    #     CategoryDetailView.as_view(),
+    #     name='category_detail_paginated'
+    #     ),
     url(r'^categories/(?P<slug>[-\w]+)/$', CategoryDetailView.as_view(), name='category_detail'),
 
     # Product

@@ -1,4 +1,6 @@
-"""Product Catalog"""
+# -*- coding: utf-8 -*-
+""" Product Catalog """
+
 __version__ = '0.0.dev0'
 __license__ = 'BSD License'
 

@@ -8,12 +8,13 @@
 
     {% trans "Products in this category" %}:
     <ul>
-    {% for product in category.product_published %}
+    {% for product in product_list %}
         <li><a href="{{ product.get_absolute_url }}">{{ product }}</a></li>
     {% empty %}
         <li>{% trans "Sorry, no products in this list." %}</li>
     {% endfor %}
     </ul>
 
-{% endblock %}
+    {% include "product_catalog/_paginator.html" %}
 
+{% endblock %}
