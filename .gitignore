@@ -15,7 +15,7 @@ old-*
 db.sqlite3
 core/
 manage.py
-
+TODO
 
 Supprimerait core/
 Supprimerait manage.py

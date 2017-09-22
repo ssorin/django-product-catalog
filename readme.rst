@@ -1,0 +1,3 @@
+An ultra simple app to manage the products in a catalog (portfolio for example)
+
+under development ...
