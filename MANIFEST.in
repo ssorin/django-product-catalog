@@ -1,0 +1,4 @@
+include LICENSE
+include readme.rst
+recursive-include product_catalog/templates *
+recursive-include docs *
