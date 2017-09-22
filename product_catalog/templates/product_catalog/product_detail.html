@@ -14,5 +14,20 @@
         <a href="{{ category.get_absolute_url }}">{{ category.title }}</a>{% if not forloop.last %}, {% endif %}
     {% endfor %}
 
+
+    <ul>
+
+    {% if product.previous_entry %}
+        <li><a href="{% url 'product_catalog:product_detail' product.previous_entry.slug %}">prev</a></li>
+    {% endif %}
+
+    <li><a href="{% url 'product_catalog:product_list' %}">{% trans "back to the product list" %}</a></li>
+
+
+    {% if product.next_entry %}
+        <li><a href="{% url 'product_catalog:product_detail' product.next_entry.slug %}">next</a></li>
+    {% endif %}
+    </ul>
+
 {% endblock %}
 

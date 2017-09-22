@@ -1,0 +1,13 @@
+{% load i18n %}
+
+<ul>
+    {% for category in categories %}
+        <li{% if category.slug == context_category.slug %} class="current"{% endif %}>
+            <a href="{{ category.get_absolute_url }}">{{ category }}</a>
+        </li>
+    {% empty %}
+        <li>
+            {% trans "No categories yet." %}
+        </li>
+    {% endfor %}
+</ul>

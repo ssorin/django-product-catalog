@@ -81,6 +81,52 @@ class PublicationProduct(models.Model):
         """
         return self.is_actual and self.status == PUBLISHED
 
+    @property
+    def previous_entry(self):
+        """
+        Returns the previous published entry if exists.
+        """
+        return self.previous_next_entries[0]
+
+    @property
+    def next_entry(self):
+        """
+        Returns the next published entry if exists.
+        """
+        return self.previous_next_entries[1]
+
+    @property
+    def previous_next_entries(self):
+        """
+        Returns and caches a tuple containing the next
+        and previous published entries.
+        Only available if the entry instance is published.
+        """
+        previous_next = getattr(self, 'previous_next', None)
+
+        if previous_next is None:
+            if not self.is_visible:
+                previous_next = (None, None)
+                setattr(self, 'previous_next', previous_next)
+                return previous_next
+
+            entries = list(self.__class__.published.all())
+            index = entries.index(self)
+            try:
+                previous = entries[index + 1]
+            except IndexError:
+                previous = None
+
+            if index:
+                _next = entries[index - 1]
+            else:
+                _next = None
+            previous_next = (previous, _next)
+            setattr(self, 'previous_next', previous_next)
+        return previous_next
+
+
+
 class ExcerptProduct(models.Model):
     """
     Abstract model class providing field

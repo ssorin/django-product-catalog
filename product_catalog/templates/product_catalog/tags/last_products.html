@@ -1,0 +1,13 @@
+{% load i18n %}
+
+<ul>
+    {% for product in products %}
+        <li>
+            <a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
+        </li>
+    {% empty %}
+        <li>
+            {% trans "No products yet." %}
+        </li>
+    {% endfor %}
+</ul>

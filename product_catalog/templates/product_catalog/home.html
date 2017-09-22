@@ -1,0 +1,9 @@
+{% extends "product_catalog/base.html" %}
+{% load i18n product_catalog %}
+
+{% block catalog_content %}
+    <h2>{% trans "Home" %}</h2>
+
+    <h3>{% trans "Last published products" %}</h3>
+    {% get_last_products %}
+{% endblock %}
