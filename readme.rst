@@ -8,10 +8,10 @@ under development ...
 
 Requirements
 ------------
-- Django==1.11.5
-- django-mptt==0.8.7
-- Pillow==4.2.1
-- django-extensions==1.9.1
+- Django 1.11
+- django-mptt 0.8.7
+- Pillow 4.2.1
+- django-extensions 1.9.1
 
 Quick start
 -----------
