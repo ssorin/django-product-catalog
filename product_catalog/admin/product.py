@@ -24,7 +24,7 @@ class ProductAdmin(admin.ModelAdmin):
         (_('Publication'), {
             'fields': ('start_publication', 'end_publication'),
             'classes': ('collapse', 'collapse-closed')}),
-        (None, {'fields': ('creation_date', 'last_update')})
+        (None, {'fields': ('creation_date', 'last_update', 'owner')})
     )
     readonly_fields = ['slug', 'get_thumbnail', 'creation_date', 'last_update']
     list_filter = ('status',)

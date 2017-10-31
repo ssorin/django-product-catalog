@@ -5,6 +5,7 @@ from django.db import models
 from django.utils import timezone
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth.models import User
 
 from product_catalog.settings import UPLOAD_TO
 from product_catalog.managers import DRAFT, HIDDEN, PUBLISHED
@@ -53,7 +54,7 @@ class PublicationProduct(models.Model):
                       (HIDDEN, _('hidden')),
                       (PUBLISHED, _('published')))
 
-    status = models.IntegerField(_('status'), db_index=True, choices=STATUS_CHOICES, default=DRAFT)
+    status = models.IntegerField(_('status'), db_index=True, choices=STATUS_CHOICES, default=PUBLISHED)
     start_publication = models.DateTimeField(_('start publication'), blank=True, null=True,
                                              help_text=_('Start date of publication.'))
     end_publication = models.DateTimeField(_('end publication'), blank=True, null=True,
@@ -172,6 +173,14 @@ class ImageProduct(models.Model):
     class Meta:
         abstract = True
 
+class OwnerProduct(models.Model):
+    """ Abstract class to add an owner to the the product """
+    owner = models.ForeignKey(User, blank=True, null=True, related_name='products', verbose_name=_('owner'))
+
+    class Meta:
+        abstract = True
+
+
 class AbstractProduct(
         BaseProduct,
         PublicationProduct,
@@ -179,6 +188,7 @@ class AbstractProduct(
         ExcerptProduct,
         ContentProduct,
         CategoriesProduct,
+        OwnerProduct,
 ):
     """
     Final abstract product model class assembling
