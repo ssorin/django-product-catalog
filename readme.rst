@@ -52,6 +52,7 @@ Default value: 'uploads/product_catalog/%Y/%m/%d/'
 Path to upload image
 
 # Add / Update / Delete on front settings
+
 - PRODUCT_CATALOG_FRONT_MANAGEMENT
 Default value: True
 If 'True' allow to manage (create/update/delete) products in front.
