@@ -4,6 +4,10 @@
 {% block catalog_content %}
     <h2>{%  trans "Product List" %}</h2>
 
+    {% if FRONT_MANAGEMENT %}
+    <a href="{% url 'product_catalog:product_add' %}">Create new product</a>
+    {% endif %}
+
     <ul>
     {% for product in product_list %}
         <li>

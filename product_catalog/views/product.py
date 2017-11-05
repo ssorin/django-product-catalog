@@ -3,10 +3,13 @@
 
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 
 from product_catalog.models.product import Product
-from product_catalog.settings import PAGINATION
-
+from product_catalog.settings import PAGINATION, FORM_UPDATE_FIELDS, FORM_CREATE_FIELDS
+from product_catalog.views.mixins.auth_mixins import AccessMixin
 
 class ProductListView(ListView):
     """ """
@@ -23,3 +26,31 @@ class ProductDetailView(DetailView):
 
     def get_queryset(self, **kwargs):
         return Product.published.all()
+
+
+class ProductCreateView(LoginRequiredMixin, CreateView):
+    """ """
+    model = Product
+    fields = FORM_CREATE_FIELDS
+
+    def form_valid(self, form):
+        owner = self.request.user
+        form.instance.owner = owner
+        return super(ProductCreateView, self).form_valid(form)
+
+
+class ProductUpdateView(AccessMixin, UpdateView):
+    """ """
+    model = Product
+    fields = FORM_UPDATE_FIELDS
+
+    def form_valid(self, form):
+        owner = self.request.user
+        form.instance.owner = owner
+        return super(ProductUpdateView, self).form_valid(form)
+
+
+class ProductDeleteView(AccessMixin, DeleteView):
+    """ """
+    model = Product
+    success_url = reverse_lazy('product_catalog:product_list')

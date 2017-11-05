@@ -1,0 +1,13 @@
+{% extends "product_catalog/base.html" %}
+
+{% load i18n %}
+
+{% block catalog_content %}
+    <h2>{%  trans "Delete Product" %}</h2>
+
+    <form action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="{%  trans 'Confirm' %}" />
+    </form>
+{% endblock %}
+

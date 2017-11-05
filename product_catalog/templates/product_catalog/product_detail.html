@@ -4,6 +4,11 @@
 {% block catalog_content %}
     <h2>{%  trans "Product" %}: {{ product.title }}</h2>
 
+    {% if FRONT_MANAGEMENT %}
+    <a href="{% url 'product_catalog:product_update' product.id %}">Update product</a>
+    <a href="{% url 'product_catalog:product_delete' product.id %}">Delete product</a>
+    {% endif %}
+
     {% if product.image %}
     <p><img src="{{ product.image.url }}" alt="{{ product.image_caption }}" /></p>
     {% endif %}
