@@ -39,22 +39,23 @@ Quick start
 
 Settings parameters
 -------------------
-- PRODUCT_CATALOG_PAGINATION
-Default value: 10
+- **PRODUCT_CATALOG_PAGINATION**
+**Default value:** 10
 Integer used to paginate the products.
 
-- PRODUCT_CATALOG_PRODUCT_BASE_MODEL
-Default value: 'product_catalog.models.product_abstract.AbstractProduct'
+- **PRODUCT_CATALOG_PRODUCT_BASE_MODEL**
+**Default value:** 'product_catalog.models.product_abstract.AbstractProduct'
 String defining the base model path for the Entry model.
 
-- PRODUCT_CATALOG_UPLOAD_TO
-Default value: 'uploads/product_catalog/%Y/%m/%d/'
+- **PRODUCT_CATALOG_UPLOAD_TO**
+**Default value:** 'uploads/product_catalog/%Y/%m/%d/'
 Path to upload image
 
-# Add / Update / Delete on front settings
 
-- PRODUCT_CATALOG_FRONT_MANAGEMENT
-Default value: True
+**# Add / Update / Delete on front settings**
+
+- **PRODUCT_CATALOG_FRONT_MANAGEMENT**
+**Default value:** True
 If 'True' allow to manage (create/update/delete) products in front.
 False to deactivate
 
@@ -62,17 +63,17 @@ False to deactivate
 - PRODUCT_CATALOG_PERMISSION_OPTIONS_STAFF = 1
 - PRODUCT_CATALOG_PERMISSION_OPTIONS_OWNER = 2
 
-- PRODUCT_CATALOG_ACCESS_PERMISSION
-Default value: PRODUCT_CATALOG_PERMISSION_OPTIONS_OWNER
+- **PRODUCT_CATALOG_ACCESS_PERMISSION**
+**Default value:** PRODUCT_CATALOG_PERMISSION_OPTIONS_OWNER
 
-- PRODUCT_CATALOG_FORM_FIELDS
-Default value: ['title', 'status', 'excerpt', 'content', 'categories', 'image']
+- **PRODUCT_CATALOG_FORM_FIELDS**
+**Default value:** ['title', 'status', 'excerpt', 'content', 'categories', 'image']
 list of available fields in update and create product form
 
-- PRODUCT_CATALOG_FORM_UPDATE_FIELDS
-Default value: FORM_FIELDS
+- **PRODUCT_CATALOG_FORM_UPDATE_FIELDS**
+**Default value:** FORM_FIELDS
 list of available fields in update product form
 
-- PRODUCT_CATALOG_FORM_CREATE_FIELDS
-Default value: FORM_FIELDS
+- **PRODUCT_CATALOG_FORM_CREATE_FIELDS**
+**Default value:** FORM_FIELDS
 list of available fields in create product form
