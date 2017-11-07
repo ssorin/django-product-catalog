@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-22 16:43+0000\n"
-"PO-Revision-Date: 2017-09-22 18:55+0200\n"
+"POT-Creation-Date: 2017-11-07 19:04+0100\n"
+"PO-Revision-Date: 2017-11-07 19:04+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Last-Translator: \n"
-"Language-Team: \n"
 "X-Generator: Poedit 1.8.7.1\n"
 
 #: product_catalog/admin/category.py:38
@@ -51,12 +51,12 @@ msgid "Product Catalog"
 msgstr "Catalogue produit"
 
 #: product_catalog/models/category.py:23
-#: product_catalog/models/product_abstract.py:20
+#: product_catalog/models/product_abstract.py:21
 msgid "title"
 msgstr "titre"
 
 #: product_catalog/models/category.py:26
-#: product_catalog/models/product_abstract.py:21
+#: product_catalog/models/product_abstract.py:22
 msgid "slug"
 msgstr "slug"
 
@@ -77,95 +77,116 @@ msgid "category"
 msgstr "catégorie"
 
 #: product_catalog/models/category.py:66
-#: product_catalog/models/product_abstract.py:159
-#: product_catalog/templates/product_catalog/base.html:11
+#: product_catalog/models/product_abstract.py:160
+#: product_catalog/templates/product_catalog/base.html:12
 msgid "categories"
 msgstr "catégories"
 
-#: product_catalog/models/product_abstract.py:22
+#: product_catalog/models/product_abstract.py:23
 msgid "creation date"
 msgstr "date de création"
 
-#: product_catalog/models/product_abstract.py:23
+#: product_catalog/models/product_abstract.py:24
 msgid "last update"
 msgstr "dernière mise à jour"
 
-#: product_catalog/models/product_abstract.py:42
+#: product_catalog/models/product_abstract.py:43
 msgid "product"
 msgstr "produit"
 
-#: product_catalog/models/product_abstract.py:43
-#: product_catalog/templates/product_catalog/base.html:10
+#: product_catalog/models/product_abstract.py:44
+#: product_catalog/templates/product_catalog/base.html:11
 msgid "products"
 msgstr "produits"
 
-#: product_catalog/models/product_abstract.py:52
+#: product_catalog/models/product_abstract.py:53
 msgid "draft"
 msgstr "brouillon"
 
-#: product_catalog/models/product_abstract.py:53
+#: product_catalog/models/product_abstract.py:54
 msgid "hidden"
 msgstr "masqué"
 
-#: product_catalog/models/product_abstract.py:54
+#: product_catalog/models/product_abstract.py:55
 msgid "published"
 msgstr "publié"
 
-#: product_catalog/models/product_abstract.py:56
+#: product_catalog/models/product_abstract.py:57
 msgid "status"
 msgstr "status"
 
-#: product_catalog/models/product_abstract.py:57
+#: product_catalog/models/product_abstract.py:58
 msgid "start publication"
 msgstr "début de publication"
 
-#: product_catalog/models/product_abstract.py:58
+#: product_catalog/models/product_abstract.py:59
 msgid "Start date of publication."
 msgstr "Date de début de publication"
 
-#: product_catalog/models/product_abstract.py:59
+#: product_catalog/models/product_abstract.py:60
 msgid "end publication"
 msgstr "fin de publication"
 
-#: product_catalog/models/product_abstract.py:60
+#: product_catalog/models/product_abstract.py:61
 msgid "End date of publication."
 msgstr "Date de fin de publicatio"
 
-#: product_catalog/models/product_abstract.py:135
+#: product_catalog/models/product_abstract.py:136
 msgid "excerpt"
 msgstr "extrait"
 
-#: product_catalog/models/product_abstract.py:136
+#: product_catalog/models/product_abstract.py:137
 msgid "Max length: 70 characters"
 msgstr "70 caractères maximum"
 
-#: product_catalog/models/product_abstract.py:146
+#: product_catalog/models/product_abstract.py:147
 msgid "content"
 msgstr "contenu"
 
-#: product_catalog/models/product_abstract.py:169
+#: product_catalog/models/product_abstract.py:170
 msgid "image"
 msgstr "image"
 
-#: product_catalog/models/product_abstract.py:170
+#: product_catalog/models/product_abstract.py:171
 msgid "caption"
 msgstr "légende"
 
-#: product_catalog/models/product_abstract.py:170
+#: product_catalog/models/product_abstract.py:171
 msgid "Image's caption."
 msgstr "Légende de l'image"
+
+#: product_catalog/models/product_abstract.py:178
+msgid "owner"
+msgstr "propriétaire"
+
+#: product_catalog/templates/product_catalog/_paginator.html:7
+msgid "previous"
+msgstr "précédent"
+
+#: product_catalog/templates/product_catalog/_paginator.html:11
+#, python-format
+msgid "Page %(page_obj.number)s of %(page_obj.paginator.num_pages)s"
+msgstr "Page %(page_obj.number)s sur %(page_obj.paginator.num_pages)s"
+
+#: product_catalog/templates/product_catalog/_paginator.html:15
+msgid "next"
+msgstr "suivant"
 
 #: product_catalog/templates/product_catalog/base.html:5
 msgid "Catalog"
 msgstr "Catalogue"
 
-#: product_catalog/templates/product_catalog/base.html:9
+#: product_catalog/templates/product_catalog/base.html:7
+msgid "Menu"
+msgstr "Menu"
+
+#: product_catalog/templates/product_catalog/base.html:10
 msgid "home"
 msgstr "accueil"
 
-#: product_catalog/templates/product_catalog/base.html:15
-#: product_catalog/templates/product_catalog/product_detail.html:12
-#: product_catalog/templates/product_catalog/product_list.html:17
+#: product_catalog/templates/product_catalog/base.html:22
+#: product_catalog/templates/product_catalog/product_detail.html:17
+#: product_catalog/templates/product_catalog/product_list.html:19
 msgid "Categories"
 msgstr "Catégories"
 
@@ -197,23 +218,51 @@ msgstr "Accueil"
 msgid "Last published products"
 msgstr "Derniers produits publiés"
 
+#: product_catalog/templates/product_catalog/product_confirm_delete.html:6
+msgid "Delete Product"
+msgstr "Supprimer le produit"
+
+#: product_catalog/templates/product_catalog/product_confirm_delete.html:10
+msgid "Confirm"
+msgstr "Confirmation"
+
 #: product_catalog/templates/product_catalog/product_detail.html:5
 msgid "Product"
 msgstr "Produit"
 
-#: product_catalog/templates/product_catalog/product_detail.html:24
+#: product_catalog/templates/product_catalog/product_detail.html:29
 msgid "back to the product list"
 msgstr "Retour à la liste des produits"
+
+#: product_catalog/templates/product_catalog/product_form.html:6
+msgid "Create new Product"
+msgstr "Créer un nouveau produit"
+
+#: product_catalog/templates/product_catalog/product_form.html:10
+msgid "Save"
+msgstr "Enregistrer"
 
 #: product_catalog/templates/product_catalog/product_list.html:5
 msgid "Product List"
 msgstr "Liste des produits"
 
-#: product_catalog/templates/product_catalog/product_list.html:24
+#: product_catalog/templates/product_catalog/product_list.html:26
 #: product_catalog/templates/product_catalog/tags/last_products.html:10
 msgid "No products yet."
 msgstr "Pas de produits pour le moment"
 
+#: product_catalog/templates/product_catalog/product_update_form.html:6
+msgid "Update Product"
+msgstr "Mettre à jour le produit"
+
+#: product_catalog/templates/product_catalog/product_update_form.html:10
+msgid "Update"
+msgstr "Mettre à jour"
+
 #: product_catalog/templates/product_catalog/tags/categories.html:10
 msgid "No categories yet."
 msgstr "Pas de catégories pour le moment"
+
+#: product_catalog/views/mixins/auth_mixins.py:23
+msgid "This feature is not enabled."
+msgstr "Cette fonctionnalité n'est pas activée"
