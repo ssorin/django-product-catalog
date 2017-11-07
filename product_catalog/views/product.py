@@ -27,7 +27,7 @@ class ProductDetailView(DetailView):
     def get_queryset(self, **kwargs):
         return Product.published.all()
 
-
+# TODO: Add verif settings.PRODUCT_CATALOG_FRONT_MANAGEMENT to access this view
 class ProductCreateView(LoginRequiredMixin, CreateView):
     """ """
     model = Product
@@ -38,7 +38,7 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
         form.instance.owner = owner
         return super(ProductCreateView, self).form_valid(form)
 
-
+# TODO: Add verif settings.PRODUCT_CATALOG_FRONT_MANAGEMENT to access this view
 class ProductUpdateView(AccessMixin, UpdateView):
     """ """
     model = Product
@@ -49,7 +49,7 @@ class ProductUpdateView(AccessMixin, UpdateView):
         form.instance.owner = owner
         return super(ProductUpdateView, self).form_valid(form)
 
-
+# TODO: Add verif settings.PRODUCT_CATALOG_FRONT_MANAGEMENT to access this view
 class ProductDeleteView(AccessMixin, DeleteView):
     """ """
     model = Product
