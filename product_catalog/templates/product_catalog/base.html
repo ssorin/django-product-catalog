@@ -4,12 +4,19 @@
 {% block content %}
     <h1>{% trans "Catalog" %}</h1>
 
+    <h2>{% trans "Menu" %}</h2>
     <nav>
         <ul>
             <li><a href="{% url "product_catalog:product_home" %}">{% trans "home" %}</a></li>
             <li><a href="{% url "product_catalog:product_list" %}">{% trans "products" %}</a></li>
             <li><a href="{% url "product_catalog:category_list" %}">{% trans "categories" %}</a></li>
         </ul>
+
+        {% if FRONT_MANAGEMENT %}
+        <ul>
+            <li><a href="{% url 'product_catalog:product_add' %}">Create new product</a></li>
+        </ul>
+        {% endif %}
     </nav>
 
     <h2>{% trans "Categories" %}</h2>
