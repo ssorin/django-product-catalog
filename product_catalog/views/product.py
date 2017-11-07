@@ -9,7 +9,7 @@ from django.urls import reverse_lazy
 
 from product_catalog.models.product import Product
 from product_catalog.settings import PAGINATION, FORM_UPDATE_FIELDS, FORM_CREATE_FIELDS
-from product_catalog.views.mixins.auth_mixins import AccessMixin
+from product_catalog.views.mixins.auth_mixins import FrontManagementIsOpenMixin, AccessMixin, CreateAccessMixin
 
 class ProductListView(ListView):
     """ """
@@ -27,8 +27,8 @@ class ProductDetailView(DetailView):
     def get_queryset(self, **kwargs):
         return Product.published.all()
 
-# TODO: Add verif settings.PRODUCT_CATALOG_FRONT_MANAGEMENT to access this view
-class ProductCreateView(LoginRequiredMixin, CreateView):
+
+class ProductCreateView(FrontManagementIsOpenMixin, CreateAccessMixin, CreateView):
     """ """
     model = Product
     fields = FORM_CREATE_FIELDS
@@ -38,8 +38,8 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
         form.instance.owner = owner
         return super(ProductCreateView, self).form_valid(form)
 
-# TODO: Add verif settings.PRODUCT_CATALOG_FRONT_MANAGEMENT to access this view
-class ProductUpdateView(AccessMixin, UpdateView):
+
+class ProductUpdateView(FrontManagementIsOpenMixin, AccessMixin, UpdateView):
     """ """
     model = Product
     fields = FORM_UPDATE_FIELDS
@@ -49,8 +49,8 @@ class ProductUpdateView(AccessMixin, UpdateView):
         form.instance.owner = owner
         return super(ProductUpdateView, self).form_valid(form)
 
-# TODO: Add verif settings.PRODUCT_CATALOG_FRONT_MANAGEMENT to access this view
-class ProductDeleteView(AccessMixin, DeleteView):
+
+class ProductDeleteView(FrontManagementIsOpenMixin, AccessMixin, DeleteView):
     """ """
     model = Product
     success_url = reverse_lazy('product_catalog:product_list')
