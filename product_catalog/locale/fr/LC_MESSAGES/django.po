@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-07 19:04+0100\n"
-"PO-Revision-Date: 2017-11-07 19:04+0100\n"
+"POT-Creation-Date: 2017-11-08 10:05+0100\n"
+"PO-Revision-Date: 2017-11-08 10:06+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -129,7 +129,7 @@ msgstr "fin de publication"
 
 #: product_catalog/models/product_abstract.py:61
 msgid "End date of publication."
-msgstr "Date de fin de publicatio"
+msgstr "Date de fin de publication"
 
 #: product_catalog/models/product_abstract.py:136
 msgid "excerpt"
@@ -163,11 +163,6 @@ msgstr "propriétaire"
 msgid "previous"
 msgstr "précédent"
 
-#: product_catalog/templates/product_catalog/_paginator.html:11
-#, python-format
-msgid "Page %(page_obj.number)s of %(page_obj.paginator.num_pages)s"
-msgstr "Page %(page_obj.number)s sur %(page_obj.paginator.num_pages)s"
-
 #: product_catalog/templates/product_catalog/_paginator.html:15
 msgid "next"
 msgstr "suivant"
@@ -183,6 +178,11 @@ msgstr "Menu"
 #: product_catalog/templates/product_catalog/base.html:10
 msgid "home"
 msgstr "accueil"
+
+#: product_catalog/templates/product_catalog/base.html:17
+#: product_catalog/templates/product_catalog/product_form.html:6
+msgid "Create new product"
+msgstr "Créer un nouveau produit"
 
 #: product_catalog/templates/product_catalog/base.html:22
 #: product_catalog/templates/product_catalog/product_detail.html:17
@@ -230,13 +230,17 @@ msgstr "Confirmation"
 msgid "Product"
 msgstr "Produit"
 
+#: product_catalog/templates/product_catalog/product_detail.html:8
+msgid "Update product"
+msgstr "Mettre à jour le produit"
+
+#: product_catalog/templates/product_catalog/product_detail.html:9
+msgid "Delete product"
+msgstr "Supprimer le produit"
+
 #: product_catalog/templates/product_catalog/product_detail.html:29
 msgid "back to the product list"
 msgstr "Retour à la liste des produits"
-
-#: product_catalog/templates/product_catalog/product_form.html:6
-msgid "Create new Product"
-msgstr "Créer un nouveau produit"
 
 #: product_catalog/templates/product_catalog/product_form.html:10
 msgid "Save"
@@ -266,3 +270,9 @@ msgstr "Pas de catégories pour le moment"
 #: product_catalog/views/mixins/auth_mixins.py:23
 msgid "This feature is not enabled."
 msgstr "Cette fonctionnalité n'est pas activée"
+
+#~ msgid "Create new Product"
+#~ msgstr "Créer un nouveau produit"
+
+#~ msgid "Page %(page_obj.number)s of %(page_obj.paginator.num_pages)s"
+#~ msgstr "Page %(page_obj.number)s sur %(page_obj.paginator.num_pages)s"

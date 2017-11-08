@@ -3,7 +3,7 @@
 {% load i18n %}
 
 {% block catalog_content %}
-    <h2>{%  trans "Create new Product" %}</h2>
+    <h2>{%  trans "Create new product" %}</h2>
 
     <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
         {{ form.as_p }}
