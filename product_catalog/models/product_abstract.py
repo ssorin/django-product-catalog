@@ -62,6 +62,9 @@ class PublicationProduct(models.Model):
 
     published = ProductPublishedManager()
 
+    class Meta:
+        abstract = True
+
     @property
     def is_actual(self):
         """
