@@ -35,6 +35,18 @@ class ProductAdmin(admin.ModelAdmin):
         self.form.admin_site = admin_site
         super(ProductAdmin, self).__init__(model, admin_site)
 
+
+    def save_related(self, request, form, formsets, change):
+        """
+        Add all parents of the selected category
+        """
+        super(ProductAdmin, self).save_related(request, form, formsets, change)
+        for category in form.instance.categories.all():
+            parent = category.parent
+            while parent is not None:
+                form.instance.categories.add(parent)
+                parent = parent.parent
+
     def get_categories(self, product):
         """
         Return the categories.

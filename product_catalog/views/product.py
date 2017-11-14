@@ -4,12 +4,13 @@
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
 from product_catalog.models.product import Product
-from product_catalog.settings import PAGINATION, FORM_UPDATE_FIELDS, FORM_CREATE_FIELDS
+from product_catalog.settings import PAGINATION
 from product_catalog.views.mixins.auth_mixins import FrontManagementIsOpenMixin, AccessMixin, CreateAccessMixin
+
+from product_catalog.forms import CategoryUpdateForm, CategoryCreateForm
 
 class ProductListView(ListView):
     """ """
@@ -31,22 +32,20 @@ class ProductDetailView(DetailView):
 class ProductCreateView(FrontManagementIsOpenMixin, CreateAccessMixin, CreateView):
     """ """
     model = Product
-    fields = FORM_CREATE_FIELDS
+    form_class = CategoryCreateForm
 
     def form_valid(self, form):
-        owner = self.request.user
-        form.instance.owner = owner
+        form.instance.owner = self.request.user
         return super(ProductCreateView, self).form_valid(form)
 
 
 class ProductUpdateView(FrontManagementIsOpenMixin, AccessMixin, UpdateView):
     """ """
     model = Product
-    fields = FORM_UPDATE_FIELDS
+    form_class = CategoryUpdateForm
 
     def form_valid(self, form):
-        owner = self.request.user
-        form.instance.owner = owner
+        form.instance.owner = self.request.user
         return super(ProductUpdateView, self).form_valid(form)
 
 

@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 from product_catalog.settings import UPLOAD_TO
 from product_catalog.managers import DRAFT, HIDDEN, PUBLISHED
 from product_catalog.managers import ProductPublishedManager
+from product_catalog.models.category import Category
 
 from django_extensions.db.fields import AutoSlugField
 
@@ -22,7 +23,10 @@ class BaseProduct(models.Model):
     slug = AutoSlugField(_('slug'), max_length=255, populate_from=['title', 'id'], unique=True, db_index=True)
     creation_date = models.DateTimeField(_('creation date'), default=timezone.now)
     last_update = models.DateTimeField(_('last update'), auto_now=True)
-
+    categories = models.ManyToManyField(Category,
+                                        blank=True,
+                                        related_name='products',
+                                        verbose_name=_('categories'))
     objects = models.Manager()
 
     @models.permalink
@@ -153,18 +157,6 @@ class ContentProduct(models.Model):
         abstract = True
 
 
-class CategoriesProduct(models.Model):
-    """
-    Abstract model class to categorize the products.
-    """
-    categories = models.ManyToManyField('product_catalog.Category',
-                                        blank=True,
-                                        related_name='products',
-                                        verbose_name=_('categories'))
-
-    class Meta:
-        abstract = True
-
 class ImageProduct(models.Model):
     """
     Abstract model class to add an image.
@@ -190,7 +182,6 @@ class AbstractProduct(
         ImageProduct,
         ExcerptProduct,
         ContentProduct,
-        CategoriesProduct,
         OwnerProduct,
 ):
     """
