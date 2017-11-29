@@ -37,6 +37,26 @@ Quick start
 
 5. Visit http://127.0.0.1:8000/catalog/ .
 
+
+Optional
+--------
+if you want to use front-end product management, you must add
+`product_catalog.context_processors.product_front_management` to the `context_processors`::
+
+```
+    TEMPLATES = [
+        {
+            [...]
+            'OPTIONS': {
+                'context_processors': [
+                    [...]
+                    'product_catalog.context_processors.product_front_management'
+                ],
+            },
+        },
+    ]
+```
+
 Settings parameters
 -------------------
 - **PRODUCT_CATALOG_PAGINATION**
