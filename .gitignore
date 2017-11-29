@@ -22,3 +22,7 @@ Supprimerait core/
 Supprimerait manage.py
 Supprimerait product_catalog/
 /TODO
+/django_product_catalog.egg-info/
+/htmlcov/
+/-db.sqlite3
+/.coverage

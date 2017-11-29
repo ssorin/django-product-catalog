@@ -1,0 +1,10 @@
+[run]
+source		= product_catalog
+omit		= product_catalog/tests/*
+              product_catalog/migrations/*
+              core/*
+              setup.py
+              manage.py
+
+[report]
+show_missing    = True
