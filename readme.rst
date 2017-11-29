@@ -15,27 +15,27 @@ Requirements
 
 Quick start
 -----------
+1. pip install django-product-catalog
 
-1. Add "product_catalog" to your INSTALLED_APPS setting like this::
+2. Add "product_catalog" to your INSTALLED_APPS setting like this::
 
     INSTALLED_APPS = [
         ...
         'product_catalog',
         'mptt',
-        'django_extensions',
     ]
 
 
-2. Include the product_catalog URLconf in your project urls.py like this::
+3. Include the product_catalog URLconf in your project urls.py like this::
 
     url(r'^catalog/', include('product_catalog.urls'))
 
-3. Run `python manage.py migrate` to create the product_catalog models.
+4. Run `python manage.py migrate` to create the product_catalog models.
 
-4. Start the development server and visit http://127.0.0.1:8000/admin/
+5. Start the development server and visit http://127.0.0.1:8000/admin/
    to create a product / categories (you'll need the Admin app enabled).
 
-5. Visit http://127.0.0.1:8000/catalog/ .
+6. Visit http://127.0.0.1:8000/catalog/ .
 
 
 Optional

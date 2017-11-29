@@ -9,11 +9,11 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-product-catalog',
-    version='0.1',
+    version='0.1.1',
     packages=find_packages(),
     include_package_data=True,
     license='BSD License',
-    description='An ultra simple app to manage products in a catalog (portfolio for example).',
+    description='A simple app to manage products in a catalog (portfolio for example).',
     long_description=README,
     url='https://github.com/ssorin/django-product-catalog',
     author='Samuel SORIN',
