@@ -10,5 +10,4 @@ def product_front_management(request):
 
     return {
         'FRONT_MANAGEMENT': FRONT_MANAGEMENT
-
     }

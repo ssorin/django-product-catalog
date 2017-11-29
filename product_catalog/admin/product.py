@@ -35,7 +35,6 @@ class ProductAdmin(admin.ModelAdmin):
         self.form.admin_site = admin_site
         super(ProductAdmin, self).__init__(model, admin_site)
 
-
     def save_related(self, request, form, formsets, change):
         """
         Add all parents of the selected category
@@ -53,7 +52,7 @@ class ProductAdmin(admin.ModelAdmin):
         """
         try:
             return format_html_join(
-                ', ', '<a href="{}" target="blank">{}</a>',
+                ', ', u'<a href="{}" target="blank">{}</a>',
                 [(category.get_absolute_url(), category.title)
                  for category in product.categories.all()])
         except NoReverseMatch:

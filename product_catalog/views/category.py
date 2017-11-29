@@ -19,15 +19,6 @@ class CategoryListView(ListView):
         context = super(CategoryListView, self).get_context_data(**kwargs)
         return context
 
-class CategoryDetailView2(DetailView):
-    """ """
-    model = Category
-    context_object_name = "category"
-
-    def get_context_data(self, **kwargs):
-        context = super(CategoryDetailView, self).get_context_data(**kwargs)
-        return context
-
 class CategoryDetailView(ListView):
     """ """
     template_name = 'product_catalog/category_detail.html'

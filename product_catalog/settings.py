@@ -4,7 +4,7 @@
 from django.conf import settings
 
 
-PAGINATION = getattr(settings, 'PRODUCT_CATALOG_PAGINATION', 2)
+PAGINATION = getattr(settings, 'PRODUCT_CATALOG_PAGINATION', 10)
 
 PRODUCT_BASE_MODEL = getattr(settings, 'PRODUCT_CATALOG_PRODUCT_BASE_MODEL',
                              'product_catalog.models.product_abstract.AbstractProduct')
