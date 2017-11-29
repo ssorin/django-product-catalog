@@ -43,7 +43,6 @@ Optional
 if you want to use front-end product management, you must add
 `product_catalog.context_processors.product_front_management` to the `context_processors`::
 
-```
     TEMPLATES = [
         {
             [...]
@@ -55,7 +54,6 @@ if you want to use front-end product management, you must add
             },
         },
     ]
-```
 
 Settings parameters
 -------------------
