@@ -35,7 +35,7 @@ setup(
     ],
     install_requires=[
         'django-mptt==0.8.7',
-        'Pillow==4.2.1',
+        'Pillow==9.0.0',
         'django-extensions==1.9.1'
     ]
 )
